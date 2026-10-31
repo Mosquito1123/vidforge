@@ -1,0 +1,6 @@
+apiVersion: v2
+name: ai-video-platform
+description: AI video generation platform (API, worker, web) with Aliyun OSS + CDN
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

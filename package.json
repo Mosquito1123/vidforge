@@ -1,0 +1,22 @@
+{
+  "name": "ai-video-platform",
+  "private": true,
+  "version": "0.1.0",
+  "description": "AI video/film generation platform (Upsampler-like)",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "db:migrate": "pnpm --filter @app/api db:migrate",
+    "db:seed": "pnpm --filter @app/api db:seed"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "typescript": "^5.6.0"
+  },
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=20"
+  }
+}

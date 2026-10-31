@@ -1,0 +1,1 @@
+export { AdminGuard } from '../../admin/guards/admin.guard.js';

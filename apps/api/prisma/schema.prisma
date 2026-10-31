@@ -1,0 +1,389 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TaskStatus {
+  queued
+  running
+  post_processing
+  done
+  failed
+  cancelled
+}
+
+enum TransactionType {
+  CREDIT
+  DEBIT
+  REFUND
+}
+
+enum ModelType {
+  VIDEO
+  IMAGE
+  AUDIO
+  TEXT
+}
+
+enum UserRole {
+  user
+  admin
+  USER
+  ADMIN
+}
+
+enum AdminRole {
+  user
+  admin
+  USER
+  ADMIN
+}
+
+model User {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  passwordHash String
+  name         String?
+  role         UserRole      @default(user)
+  adminRole    AdminRole     @default(user)
+  isAdmin      Boolean       @default(false)
+  isBanned     Boolean       @default(false)
+  banned       Boolean       @default(false)
+  bannedAt     DateTime?
+  banReason    String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  creditAccount   CreditAccount?
+  apiKeys         ApiKey[]
+  tasks           Task[]
+  payments        Payment[]
+  subscriptions   Subscription[]
+  invoices        Invoice[]
+  auditLogs       AuditLog[]
+  couponRedemptions CouponRedemption[]
+  inviteCodes     InviteCode[]
+  referralsAsInviter Referral[] @relation("ReferralInviter")
+  referralsAsInvitee Referral[] @relation("ReferralInvitee")
+}
+
+model CreditAccount {
+  id                  String        @id @default(uuid())
+  userId              String        @unique
+  balance             Decimal       @default(0) @db.Decimal(18, 4)
+  autoRefillEnabled   Boolean       @default(false)
+  autoRefillThreshold Decimal?      @db.Decimal(18, 4)
+  autoRefillAmount    Decimal?      @db.Decimal(18, 4)
+  autoRefillPackageId String?
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+}
+
+model Transaction {
+  id          String          @id @default(uuid())
+  accountId   String
+  type        TransactionType
+  amount      Decimal         @db.Decimal(18, 4)
+  reason      String
+  taskId      String?
+  balanceAfter Decimal?       @db.Decimal(18, 4)
+  createdAt   DateTime        @default(now())
+
+  account CreditAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  task    Task?         @relation(fields: [taskId], references: [id], onDelete: SetNull)
+
+  @@index([accountId, createdAt])
+}
+
+model Model {
+  id            String    @id @default(uuid())
+  slug          String    @unique
+  name          String
+  provider      String
+  type          ModelType @default(VIDEO)
+  creditsCost   Decimal  @db.Decimal(18, 4)
+  active        Boolean   @default(true)
+  metadata      Json?
+  watermark     Boolean   @default(false)
+  watermarkPolicy Boolean @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  tasks Task[]
+}
+
+model Task {
+  id        String     @id @default(uuid())
+  userId    String
+  modelId   String?
+  tool      String     @default("generate")
+  status    TaskStatus @default(queued)
+  input     Json
+  output    Json?
+  progress  Int        @default(0)
+  stage     String?
+  startedAt DateTime?
+  completedAt DateTime?
+  error     String?
+  watermark Boolean   @default(false)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  model        Model?        @relation(fields: [modelId], references: [id])
+  transactions Transaction[]
+
+  @@index([userId, createdAt])
+  @@index([status])
+}
+
+model ApiKey {
+  id         String    @id @default(uuid())
+  userId     String
+  keyHash    String    @unique
+  name       String?
+  lastUsedAt DateTime?
+  revokedAt  DateTime?
+  createdAt  DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+enum PaymentProvider {
+  stripe
+  alipay
+  wechat
+}
+
+enum PaymentStatus {
+  pending
+  succeeded
+  failed
+  refunded
+  partially_refunded
+}
+
+enum PaymentType {
+  credit_purchase
+  subscription
+}
+
+enum SubscriptionStatus {
+  incomplete
+  active
+  past_due
+  canceled
+  trialing
+}
+
+model Plan {
+  id             String         @id @default(uuid())
+  slug           String         @unique
+  name           String
+  description    String?
+  priceCents     Int
+  currency       String         @default("usd")
+  credits        Int            @default(0)
+  interval       String         @default("month")
+  features       Json?
+  active         Boolean        @default(true)
+  stripePriceId  String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  subscriptions  Subscription[]
+  payments       Payment[]
+}
+
+model CreditPackage {
+  id            String   @id @default(uuid())
+  slug          String   @unique
+  name          String
+  credits       Int
+  priceCents    Int
+  currency      String   @default("usd")
+  active        Boolean  @default(true)
+  stripePriceId String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Subscription {
+  id                      String             @id @default(uuid())
+  userId                  String
+  planId                  String
+  provider                PaymentProvider    @default(stripe)
+  providerSubscriptionId  String?            @unique
+  status                  SubscriptionStatus @default(incomplete)
+  currentPeriodStart      DateTime?
+  currentPeriodEnd        DateTime?
+  cancelAtPeriodEnd       Boolean            @default(false)
+  canceledAt              DateTime?
+  createdAt               DateTime           @default(now())
+  updatedAt               DateTime           @updatedAt
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan     Plan      @relation(fields: [planId], references: [id])
+  payments Payment[]
+
+  @@index([userId])
+}
+
+model Payment {
+  id                 String          @id @default(uuid())
+  userId             String
+  type               PaymentType
+  provider           PaymentProvider
+  providerPaymentId  String?         @unique
+  amountCents        Int
+  currency           String          @default("usd")
+  status             PaymentStatus   @default(pending)
+  credits            Int             @default(0)
+  planId             String?
+  subscriptionId     String?
+  idempotencyKey     String?         @unique
+  metadata           Json?
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan          Plan?          @relation(fields: [planId], references: [id])
+  subscription  Subscription?  @relation(fields: [subscriptionId], references: [id])
+  invoice       Invoice?
+  refunds       Refund[]
+
+  @@index([userId, createdAt])
+}
+
+model Invoice {
+  id         String   @id @default(uuid())
+  userId     String
+  paymentId  String?  @unique
+  number     String   @unique
+  amountCents Int
+  currency   String   @default("usd")
+  status     String   @default("paid")
+  pdfUrl     String?
+  hostedUrl  String?
+  createdAt  DateTime @default(now())
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  payment Payment? @relation(fields: [paymentId], references: [id])
+}
+
+model Refund {
+  id               String   @id @default(uuid())
+  paymentId        String
+  amountCents      Int
+  reason           String?
+  status           String   @default("succeeded")
+  providerRefundId String?
+  createdAt        DateTime @default(now())
+
+  payment Payment @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+}
+
+model WebhookEvent {
+  id          String   @id @default(uuid())
+  provider    String
+  eventId     String
+  type        String
+  processedAt DateTime @default(now())
+  payload     Json?
+
+  @@unique([provider, eventId])
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  userId      String?
+  action      String
+  targetType  String?
+  targetId    String?
+  resourceId  String?
+  resourceType String?
+  details     Json?
+  metadata    Json?
+  ip          String?
+  userAgent   String?
+  createdAt   DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId, createdAt])
+  @@index([action, createdAt])
+}
+
+
+model Coupon {
+  id               String             @id @default(uuid())
+  code             String             @unique
+  type             String             @default("percent")
+  value            Decimal            @db.Decimal(18, 4)
+  currency         String             @default("usd")
+  maxRedemptions   Int?
+  redemptionCount  Int                @default(0)
+  expiresAt        DateTime?
+  active           Boolean            @default(true)
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  redemptions CouponRedemption[]
+}
+
+model CouponRedemption {
+  id            String   @id @default(uuid())
+  couponId      String
+  userId        String
+  discountCents Int?
+  credits       Int?
+  createdAt     DateTime @default(now())
+
+  coupon Coupon @relation(fields: [couponId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([couponId, userId])
+  @@index([userId, createdAt])
+}
+
+model InviteCode {
+  id            String     @id @default(uuid())
+  code          String     @unique
+  inviterUserId String
+  maxUses       Int?
+  uses          Int        @default(0)
+  rewardCredits Int        @default(0)
+  expiresAt     DateTime?
+  active        Boolean    @default(true)
+  createdAt     DateTime   @default(now())
+
+  inviter   User       @relation(fields: [inviterUserId], references: [id], onDelete: Cascade)
+  referrals Referral[]
+}
+
+model Referral {
+  id             String    @id @default(uuid())
+  inviterUserId  String
+  inviteeUserId  String?
+  inviteCodeId   String?
+  status         String    @default("pending")
+  rewardCredits  Int       @default(0)
+  completedAt    DateTime?
+  createdAt      DateTime  @default(now())
+
+  inviter    User        @relation("ReferralInviter", fields: [inviterUserId], references: [id], onDelete: Cascade)
+  invitee    User?       @relation("ReferralInvitee", fields: [inviteeUserId], references: [id], onDelete: SetNull)
+  inviteCode InviteCode? @relation(fields: [inviteCodeId], references: [id], onDelete: SetNull)
+
+  @@index([inviterUserId, createdAt])
+  @@index([inviteeUserId])
+}

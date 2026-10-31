@@ -1,0 +1,1 @@
+export { AdminGuard as AdminRoleGuard } from './admin.guard.js';

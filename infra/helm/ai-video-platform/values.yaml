@@ -1,0 +1,141 @@
+# Default values. Override per environment, e.g.:
+#   helm upgrade --install ai-video ./infra/helm/ai-video-platform \
+#     -f infra/helm/ai-video-platform/values.aliyun.example.yaml \
+#     --set secrets.ALIYUN_OSS_ACCESS_KEY_ID="$ALIYUN_OSS_ACCESS_KEY_ID"
+
+nameOverride: ""
+fullnameOverride: ""
+
+imagePullSecrets: []
+
+# Non-secret environment shared by every workload.
+config:
+  NODE_ENV: production
+  STORAGE_PROVIDER: aliyun
+  # Aliyun OSS
+  ALIYUN_OSS_BUCKET: ""
+  ALIYUN_OSS_REGION: cn-shanghai
+  ALIYUN_OSS_ENDPOINT: ""
+  ALIYUN_OSS_USE_INTERNAL: "true"
+  ALIYUN_OSS_PUBLIC_BASE_URL: ""
+  # Aliyun CDN (signed URL delivery)
+  CDN_DOMAIN: ""
+  CDN_URL_TTL_SECONDS: "3600"
+  # Web
+  NEXT_PUBLIC_API_URL: https://api.example.com
+  NEXT_PUBLIC_CDN_URL: ""
+
+# Rendered into a Secret. Leave empty here; inject with --set / external secrets.
+secrets:
+  DATABASE_URL: ""
+  REDIS_URL: ""
+  JWT_SECRET: ""
+  ALIYUN_OSS_ACCESS_KEY_ID: ""
+  ALIYUN_OSS_ACCESS_KEY_SECRET: ""
+  ALIYUN_OSS_STS_TOKEN: ""
+  CDN_AUTH_KEY: ""
+
+services:
+  api:
+    enabled: true
+    replicaCount: 1
+    image:
+      repository: registry.cn-shanghai.aliyuncs.com/aivideo/api
+      tag: latest
+      pullPolicy: IfNotPresent
+    containerPort: 4000
+    service:
+      enabled: true
+      type: ClusterIP
+      port: 4000
+    env: {}
+    resources:
+      requests:
+        cpu: 250m
+        memory: 256Mi
+      limits:
+        cpu: "1"
+        memory: 1Gi
+    probes:
+      liveness:
+        path: /health
+        initialDelaySeconds: 15
+        periodSeconds: 20
+      readiness:
+        path: /health
+        initialDelaySeconds: 5
+        periodSeconds: 10
+
+  worker:
+    enabled: true
+    replicaCount: 1
+    image:
+      repository: registry.cn-shanghai.aliyuncs.com/aivideo/worker
+      tag: latest
+      pullPolicy: IfNotPresent
+    containerPort: 8000
+    service:
+      enabled: false
+      type: ClusterIP
+      port: 8000
+    env: {}
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: "2"
+        memory: 2Gi
+    probes: {}
+
+  web:
+    enabled: true
+    replicaCount: 1
+    image:
+      repository: registry.cn-shanghai.aliyuncs.com/aivideo/web
+      tag: latest
+      pullPolicy: IfNotPresent
+    containerPort: 3000
+    service:
+      enabled: true
+      type: ClusterIP
+      port: 3000
+    env: {}
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 512Mi
+    probes:
+      readiness:
+        path: /
+        initialDelaySeconds: 5
+        periodSeconds: 10
+
+# Ungrouped defaults for templates.
+podAnnotations: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 2048m
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+  tls:
+    - secretName: ai-video-tls
+      hosts:
+        - app.example.com
+        - api.example.com
+  hosts:
+    - host: app.example.com
+      service: web
+      port: 3000
+    - host: api.example.com
+      service: api
+      port: 4000

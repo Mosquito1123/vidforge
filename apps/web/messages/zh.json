@@ -1,0 +1,823 @@
+{
+  "name": "名称",
+  "provider": "提供商",
+  "creditsCost": "积分消耗",
+  "common": {
+    "loading": "加载中...",
+    "save": "保存",
+    "saving": "保存中...",
+    "cancel": "取消",
+    "submit": "提交",
+    "close": "关闭",
+    "dismiss": "关闭",
+    "retry": "重试",
+    "refresh": "刷新",
+    "view": "查看",
+    "noData": "暂无数据",
+    "error": "出错了",
+    "success": "成功",
+    "credits": "积分",
+    "verified": "已验证",
+    "unverified": "未验证"
+  },
+  "nav": {
+    "brand": "VidForge",
+    "generate": "生成",
+    "dashboard": "仪表盘",
+    "pricing": "价格",
+    "billing": "账单",
+    "account": "账户",
+    "login": "登录",
+    "signup": "注册",
+    "logout": "退出登录",
+    "language": "语言",
+    "compare": "对比",
+    "privacy": "隐私",
+    "terms": "条款",
+    "faq": "常见问题",
+    "primary": "主导航",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "tools": "工具"
+  },
+  "hero": {
+    "title": "用 AI 生成惊艳视频",
+    "subtitle": "几秒内将文字和图片转化为电影级视频。",
+    "cta": "开始生成",
+    "secondary": "查看价格"
+  },
+  "tools": {
+    "prompt": "提示词",
+    "model": "模型",
+    "duration": "时长 (秒)",
+    "aspectRatio": "画面比例",
+    "referenceImage": "参考图片（可选）",
+    "upload": "点击或拖拽上传",
+    "uploadHint": "图片或视频，最大 {max}MB",
+    "fileTooLarge": "文件过大，最大 {max}MB。",
+    "progress": "进度",
+    "preview": "预览",
+    "noVideoYet": "暂无视频",
+    "image": "图片",
+    "video": "视频",
+    "replaceFile": "替换文件",
+    "removeFile": "移除文件"
+  },
+  "generate": {
+    "title": "生成视频",
+    "promptRequired": "提示词不能为空",
+    "promptTooLong": "提示词过长",
+    "selectModel": "请选择模型",
+    "invalidDuration": "无效的时长",
+    "invalidAspect": "无效的画面比例",
+    "fixErrors": "请修正表单错误",
+    "pleaseLogin": "请登录",
+    "authRequired": "需要认证",
+    "uploadFailed": "上传失败",
+    "generationComplete": "生成完成",
+    "generationFailed": "生成失败",
+    "generationStarted": "已开始生成",
+    "failedToStart": "启动生成失败",
+    "newVideo": "新建视频",
+    "viewInDashboard": "在仪表盘查看",
+    "task": "任务",
+    "before": "原图",
+    "after": "结果",
+    "options": "选项",
+    "generating": "生成中...",
+    "generate": "生成",
+    "subtitle": "描述你的创意，选择模型即可生成，进度会实时推送。",
+    "promptSection": "创意描述",
+    "promptPlaceholder": "夜晚霓虹灯市集里独自行走的宇航员，电影感，浅景深……",
+    "promptHint": "建议写清主体、动作、场景、镜头与光线，效果更稳定。",
+    "promptShortcut": "⌘/Ctrl + Enter 快速生成",
+    "stylePresets": "风格预设",
+    "styles": {
+      "cinematic": "电影感",
+      "cyberpunk": "赛博朋克",
+      "product": "产品广告",
+      "anime": "动漫",
+      "nature": "自然纪实",
+      "retro": "复古 80s"
+    },
+    "examplesTitle": "试试示例",
+    "example1": "雨中城市街道上漂流的纸船，微距视角，暖色路灯",
+    "example2": "日出时分穿过薄雾松林的缓慢推进镜头，体积光",
+    "example3": "小咖啡馆里机器人咖啡师拉花，温暖灯光，35mm 质感",
+    "imageModel": "图片模型",
+    "videoModel": "视频模型",
+    "creditsPerRun": "每次 {credits} 积分",
+    "advanced": "高级选项",
+    "expand": "展开",
+    "collapse": "收起",
+    "negativePrompt": "反向提示词",
+    "negativePromptPlaceholder": "模糊、低质量、手部畸变、水印",
+    "negativePromptHint": "描述你希望画面里避免出现的内容。",
+    "seed": "随机种子",
+    "seedPlaceholder": "随机",
+    "randomSeed": "随机生成种子",
+    "resolution": "分辨率",
+    "autoOption": "自动（跟随画面比例）",
+    "estimatedCost": "预计消耗",
+    "balanceAfter": "生成后余额",
+    "insufficientCredits": "积分不足，无法开始生成。",
+    "topUp": "去充值",
+    "cancel": "取消生成",
+    "cancelled": "已取消生成",
+    "regenerate": "重新生成",
+    "download": "下载",
+    "downloadFailed": "下载失败",
+    "copyLink": "复制链接",
+    "linkCopied": "链接已复制",
+    "copyFailed": "复制失败",
+    "emptyPreviewTitle": "生成结果会显示在这里",
+    "emptyPreviewHint": "输入提示词开始生成，通常需要 20–60 秒。",
+    "stagesLabel": "生成阶段",
+    "stage": {
+      "queued": "排队中",
+      "running": "生成中",
+      "post_processing": "后处理",
+      "done": "完成"
+    },
+    "status": {
+      "queued": "排队中",
+      "running": "生成中",
+      "post_processing": "收尾中",
+      "done": "已完成",
+      "failed": "失败",
+      "cancelled": "已取消",
+      "blocked": "已拦截"
+    },
+    "failedTitle": "生成失败",
+    "failedHint": "积分已自动退回，可重试或调整提示词。",
+    "watermarkNotice": "免费档输出带有水印。",
+    "upgradeToRemove": "升级去水印",
+    "moderationBlocked": "内容审核未通过",
+    "appeal": "申诉",
+    "recentRuns": "最近生成",
+    "untitledPrompt": "未命名提示词",
+    "unknownModel": "未知模型"
+  },
+  "dashboard": {
+    "title": "仪表盘",
+    "subtitle": "您的生成任务",
+    "loadingTasks": "加载任务中...",
+    "failedToLoad": "加载任务失败",
+    "refreshed": "已刷新",
+    "noTasks": "暂无任务。创建您的第一个任务。",
+    "generateVideo": "生成视频",
+    "untitled": "未命名任务",
+    "viewVideo": "查看视频",
+    "retryNotImplemented": "重试功能未实现",
+    "retry": "重试"
+  },
+  "pricing": {
+    "title": "简单透明的价格",
+    "subtitle": "按生成量付费，随时取消。",
+    "subscribe": "订阅",
+    "couldNotLoad": "无法加载套餐",
+    "checkoutFailed": "结账失败",
+    "checkoutCreated": "结账已创建",
+    "noRedirect": "无跳转链接"
+  },
+  "billing": {
+    "title": "账单",
+    "subtitle": "管理订阅、积分和发票",
+    "credits": "积分",
+    "currentBalance": "当前余额：{balance}",
+    "noPackages": "暂无积分套餐。",
+    "buyCustomCredits": "购买自定义积分",
+    "howManyCredits": "购买多少积分？",
+    "subscription": "订阅",
+    "noActiveSubscription": "暂无有效订阅",
+    "cancelsAtPeriodEnd": "期末取消",
+    "currentPeriodEnds": "当前周期结束：{date}",
+    "cancelSubscription": "取消订阅",
+    "cancelAtPeriodEnd": "期末取消订阅？",
+    "subscriptionCanceled": "订阅已取消",
+    "cancelFailed": "取消失败",
+    "invoices": "发票",
+    "invoiceCount": "{count} 张发票",
+    "noInvoices": "暂无发票。",
+    "view": "查看",
+    "paymentHistory": "支付历史",
+    "paymentCount": "{count} 笔支付",
+    "noPayments": "暂无支付记录。",
+    "viewPlans": "查看套餐",
+    "checkoutFailed": "结账失败"
+  },
+  "auth": {
+    "welcomeBack": "欢迎回来",
+    "loginMethod": "登录方式",
+    "loginSubtitle": "登录您的 VidForge 账户",
+    "email": "邮箱",
+    "password": "密码",
+    "forgotPassword": "忘记密码？",
+    "noAccount": "没有账户？",
+    "signup": "注册",
+    "loggingIn": "登录中...",
+    "login": "登录",
+    "emailRequired": "邮箱不能为空",
+    "invalidEmail": "邮箱格式无效",
+    "passwordRequired": "密码不能为空",
+    "mfaRequired": "需要 MFA",
+    "enterAuthenticatorCode": "请输入验证器代码",
+    "mfaFailed": "MFA 验证失败",
+    "loginFailed": "登录失败",
+    "registrationFailed": "注册失败",
+    "accountCreated": "账户已创建",
+    "mfaCodeRequired": "MFA 代码不能为空",
+    "authenticatorCode": "验证器代码",
+    "register": "创建账户",
+    "name": "姓名",
+    "confirmPassword": "确认密码",
+    "alreadyHaveAccount": "已有账户？",
+    "loginLink": "登录"
+  },
+  "account": {
+    "title": "账户设置",
+    "profile": "个人资料",
+    "updateDetails": "更新您的账户信息",
+    "name": "姓名",
+    "avatarUrl": "头像链接",
+    "bio": "简介",
+    "locale": "语言区域",
+    "saveProfile": "保存资料",
+    "profileUpdated": "资料已更新",
+    "saveFailed": "保存失败",
+    "mfa": "多因素认证",
+    "mfaDescription": "通过验证器应用的可选 TOTP",
+    "status": "状态：{status}",
+    "enabled": "已启用",
+    "disabled": "已禁用",
+    "setupMfa": "设置 MFA",
+    "starting": "启动中...",
+    "mfaSetupFailed": "MFA 设置失败",
+    "secret": "密钥：{secret}",
+    "enterCode": "输入 6 位代码",
+    "enableMfa": "启用 MFA",
+    "enabling": "启用中...",
+    "enableFailed": "启用失败",
+    "mfaEnabled": "MFA 已启用",
+    "enterCodeToDisable": "输入代码以禁用",
+    "disableMfa": "禁用 MFA",
+    "disabling": "禁用中...",
+    "disableFailed": "禁用失败",
+    "mfaDisabled": "MFA 已禁用",
+    "sessions": "会话",
+    "manageSessions": "管理活跃会话",
+    "noSessions": "暂无会话",
+    "revoke": "撤销",
+    "revokeFailed": "撤销失败",
+    "sessionRevoked": "会话已撤销",
+    "security": "安全设置",
+    "securityDescription": "登录保护、实名认证与最近活动",
+    "phoneTitle": "手机号",
+    "phoneDescription": "使用手机号登录并接收安全验证码",
+    "kycTitle": "实名认证",
+    "kycDescription": "完成实名认证以使用受限功能",
+    "manage": "管理",
+    "recentLogins": "最近登录记录",
+    "riskScore": "风险 {score}（{level}）",
+    "loading": "加载中..."
+  },
+  "phone": {
+    "title": "手机号设置",
+    "subtitle": "使用手机验证码登录",
+    "bindingTitle": "手机号",
+    "bindingDescription": "绑定手机号后可使用验证码免密登录",
+    "phoneNumber": "手机号",
+    "phonePlaceholder": "请输入手机号",
+    "code": "验证码",
+    "codePlaceholder": "6 位验证码",
+    "sendCode": "发送验证码",
+    "resend": "重新发送",
+    "sending": "发送中...",
+    "resendIn": "{seconds} 秒后可重发",
+    "codeSent": "验证码已发送",
+    "codeSentTo": "验证码已发送至 {phone}",
+    "debugCode": "开发环境验证码：{code}",
+    "codeRequired": "请输入验证码",
+    "invalidPhone": "请输入有效的手机号",
+    "sendFailed": "验证码发送失败",
+    "bind": "绑定手机号",
+    "binding": "绑定中...",
+    "bound": "手机号已绑定",
+    "bindFailed": "手机号绑定失败",
+    "unbind": "解绑手机号",
+    "unbinding": "解绑中...",
+    "unbound": "手机号已解绑",
+    "unbindFailed": "手机号解绑失败",
+    "unbindDescription": "请输入发送到该手机号的验证码以完成解绑。解绑后将无法使用该号码登录。",
+    "confirmUnbind": "确认解绑",
+    "unbindCodeSent": "验证码已发送至已绑定手机号",
+    "verifiedAt": "验证时间",
+    "backToAccount": "返回账户设置",
+    "phoneTab": "手机号",
+    "emailTab": "邮箱",
+    "loginWithPhone": "手机号登录",
+    "registerWithPhone": "手机号注册",
+    "loginHint": "我们将发送一次性验证码，未注册的号码会自动完成注册。",
+    "registerHint": "我们将发送一次性验证码以验证该号码。",
+    "loginFailed": "登录失败",
+    "registerFailed": "注册失败"
+  },
+  "risk": {
+    "challengeRequired": "需要额外验证",
+    "description": "本次登录存在异常，请输入发送至 {phone} 的验证码以继续。",
+    "yourPhone": "您的手机",
+    "code": "验证码",
+    "codePlaceholder": "6 位验证码",
+    "codeRequired": "请输入验证码",
+    "verify": "验证",
+    "verifying": "验证中...",
+    "verified": "验证通过",
+    "failed": "验证失败",
+    "resend": "重新发送",
+    "resending": "发送中...",
+    "resent": "验证码已重新发送",
+    "resendIn": "{seconds} 秒后可重发",
+    "cancel": "取消",
+    "demoCode": "开发环境验证码：{code}"
+  },
+  "kyc": {
+    "title": "实名认证",
+    "subtitle": "使用有效身份证件完成实名认证",
+    "statusTitle": "认证状态",
+    "status": {
+      "unverified": "未认证",
+      "pending": "审核中",
+      "verified": "已认证",
+      "rejected": "未通过"
+    },
+    "statusDescription": {
+      "unverified": "提交姓名与身份证号即可完成实名认证。",
+      "pending": "您的资料正在审核中。",
+      "verified": "您的身份已通过审核。",
+      "rejected": "上次提交未通过审核，您可以重新提交。"
+    },
+    "start": "开始认证",
+    "resubmit": "重新提交",
+    "alreadyVerified": "您的身份已认证。如信息有变更，请联系客服。",
+    "pendingHint": "审核完成后会通知您。",
+    "formTitle": "身份信息",
+    "formDescription": "请按身份证件上的信息如实填写",
+    "realName": "真实姓名",
+    "realNamePlaceholder": "身份证上的姓名",
+    "idNumber": "身份证号",
+    "idNumberPlaceholder": "18 位身份证号",
+    "idNumberHint": "身份证号在本地校验，且仅以掩码形式保存。",
+    "nameInvalid": "请输入真实姓名",
+    "idNumberInvalid": "请输入有效的 18 位身份证号",
+    "frontUrl": "身份证正面图片地址（选填）",
+    "backUrl": "身份证反面图片地址（选填）",
+    "privacyNote": "我们不会保存您的完整姓名与身份证号，仅保留掩码信息和单向哈希。",
+    "submit": "提交认证",
+    "submitting": "提交中...",
+    "submitFailed": "提交失败",
+    "verifiedToast": "实名认证已通过",
+    "rejectedToast": "实名认证未通过",
+    "rejectionReason": "未通过原因：{reason}",
+    "submittedAt": "提交时间",
+    "verifiedAt": "认证时间",
+    "age": "年龄",
+    "provider": "认证渠道",
+    "backToAccount": "返回账户设置",
+    "phoneSettings": "手机号设置",
+    "loadFailed": "认证状态加载失败"
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "intro": "本隐私政策说明 VidForge 在提供 AI 视频生成服务时如何收集、使用和保护您的信息。",
+    "updated": "最后更新：2026 年 10 月 30 日",
+    "sections": [
+      {
+        "title": "我们收集的信息",
+        "body": "我们收集账户信息（姓名、邮箱）、上传的媒体与提示词、使用数据、账单记录以及运行服务所需的 IP 地址、设备类型等技术数据。"
+      },
+      {
+        "title": "信息的使用",
+        "body": "我们使用您的信息提供和改进服务、处理支付、发送交易通知、防止滥用并遵守法律义务。我们不会出售您的个人数据。"
+      },
+      {
+        "title": "数据共享",
+        "body": "我们仅在运营 VidForge 所需范围内与可信服务提供商（托管、支付、AI 模型提供方）共享数据，所有提供商均受保密义务约束。"
+      },
+      {
+        "title": "数据保留",
+        "body": "账户活跃期间及之后的合理期限内我们会保留您的数据以满足法律与账单需求。您可随时申请删除。"
+      },
+      {
+        "title": "您的权利",
+        "body": "您可访问、更正、导出或删除个人数据。请通过 support@vidforge.ai 行使这些权利。"
+      },
+      {
+        "title": "Cookie",
+        "body": "我们使用用于认证与偏好的必要 Cookie 以及可选的分析 Cookie。您可在浏览器设置中控制 Cookie。"
+      },
+      {
+        "title": "联系",
+        "body": "对本政策有疑问？请发邮件至 support@vidforge.ai。"
+      },
+      {
+        "title": "跨境传输",
+        "body": "您的数据可能在提供服务所需的国家/地区处理与存储。我们采取合理措施保障数据安全。"
+      },
+      {
+        "title": "内容审核",
+        "body": "为遵守法律与平台规范，我们可能对生成内容进行自动化与人工审核，违规内容可能被移除。"
+      }
+    ]
+  },
+  "terms": {
+    "title": "服务条款",
+    "intro": "使用 VidForge 即表示您同意本服务条款。请仔细阅读。",
+    "updated": "最后更新：2026 年 10 月 30 日",
+    "sections": [
+      {
+        "title": "接受条款",
+        "body": "创建账户或使用服务即表示您同意受本条款及隐私政策约束。"
+      },
+      {
+        "title": "服务说明",
+        "body": "VidForge 提供基于 AI 的文本与图片转视频服务。功能与模型可能随时间变化。"
+      },
+      {
+        "title": "账户",
+        "body": "您负责保护账户凭证并承担账户下的一切活动责任。"
+      },
+      {
+        "title": "可接受的使用",
+        "body": "不得使用 VidForge 生成违法、侵权、骚扰或欺骗性内容，或违反任何法律及第三方权利。"
+      },
+      {
+        "title": "积分与计费",
+        "body": "每次生成消耗积分。订阅与积分包按定价页说明计费。未使用的积分可能按套餐条款过期。"
+      },
+      {
+        "title": "知识产权",
+        "body": "在符合模型提供方条款的前提下，您保留生成内容的权利。VidForge 保留平台及品牌权利。"
+      },
+      {
+        "title": "终止",
+        "body": "违反本条款的账户可能被暂停或终止。您可随时取消账户。"
+      },
+      {
+        "title": "免责声明与责任",
+        "body": "服务按现状提供，不作任何保证。在法律允许的最大范围内，VidForge 不对间接或后果性损害承担责任。"
+      },
+      {
+        "title": "变更",
+        "body": "我们可能更新本条款；继续使用即表示接受更新后的条款。"
+      },
+      {
+        "title": "内容审核与合规",
+        "body": "用户不得生成违法、侵权、色情、暴力或欺骗性内容。平台有权审核、拒绝或下架违规内容。"
+      },
+      {
+        "title": "ICP 与备案",
+        "body": "本服务遵守中国相关法律法规，并按要求进行 ICP 与公安备案。"
+      }
+    ]
+  },
+  "refund": {
+    "title": "退款政策",
+    "intro": "我们希望您满意 VidForge。本政策说明订阅与积分的退款规则。",
+    "updated": "最后更新：2026 年 10 月 30 日",
+    "sections": [
+      {
+        "title": "适用条件",
+        "body": "购买后 7 天内，未使用的订阅周期或未使用的积分包可申请退款。"
+      },
+      {
+        "title": "不可退款",
+        "body": "已消耗于生成任务的积分不可退款。企业定制协议按其自身条款执行。"
+      },
+      {
+        "title": "流程",
+        "body": "请发送邮件至 support@vidforge.ai，附上账户邮箱与订单详情。我们将在 2 个工作日内回复。"
+      },
+      {
+        "title": "积分",
+        "body": "已退款积分包的未使用积分将从余额中移除。促销积分不可退款。"
+      },
+      {
+        "title": "联系",
+        "body": "有疑问？请发邮件至 support@vidforge.ai。"
+      },
+      {
+        "title": "国内支付",
+        "body": "支持人民币支付渠道时，退款将原路退回，到账时间以支付机构为准。"
+      }
+    ]
+  },
+  "contact": {
+    "title": "联系我们",
+    "intro": "与 VidForge 团队取得联系。",
+    "updated": "",
+    "sections": [
+      {
+        "title": "邮箱",
+        "body": "support@vidforge.ai — 支持、账单与账户问题。"
+      },
+      {
+        "title": "商务合作",
+        "body": "partners@vidforge.ai — 合作与企业方案。"
+      },
+      {
+        "title": "举报",
+        "body": "report@vidforge.ai — 举报滥用或违法内容，参见 /report-abuse。"
+      },
+      {
+        "title": "响应时间",
+        "body": "我们通常在 1–2 个工作日内回复。"
+      }
+    ]
+  },
+  "reportAbuse": {
+    "title": "举报滥用",
+    "intro": "帮助我们保持 VidForge 安全。举报滥用、违法或侵权内容。",
+    "updated": "",
+    "sections": [
+      {
+        "title": "可举报内容",
+        "body": "违法内容、非自愿亲密影像、骚扰、侵犯版权或试图绕过安全系统的行为。"
+      },
+      {
+        "title": "如何举报",
+        "body": "请发送邮件至 report@vidforge.ai，附上任务 ID 或 URL、描述及支持证据。如可避免，请勿附带滥用内容本身。"
+      },
+      {
+        "title": "处理",
+        "body": "我们及时审核举报，可能移除内容、暂停账户或按要求通知主管部门。"
+      },
+      {
+        "title": "紧急情况",
+        "body": "若有人身安全受到即时威胁，请先联系当地紧急服务。"
+      }
+    ]
+  },
+  "faq": {
+    "title": "常见问题",
+    "intro": "关于 VidForge 的常见问题解答。",
+    "updated": "",
+    "sections": [
+      {
+        "title": "VidForge 如何工作？",
+        "body": "输入提示词（可选参考图），选择模型，即可生成视频。每次生成扣除积分。"
+      },
+      {
+        "title": "有哪些模型？",
+        "body": "请查看对比页面获取完整模型、提供商与费用列表。"
+      },
+      {
+        "title": "费用如何？",
+        "body": "套餐见定价页面，也可在账单页面购买积分包。"
+      },
+      {
+        "title": "生成的视频可商用吗？",
+        "body": "取决于套餐与模型提供方条款。详情请查看套餐功能。"
+      },
+      {
+        "title": "生成需要多久？",
+        "body": "大多数视频几分钟内完成。复杂或更长的视频可能需要更长时间。"
+      },
+      {
+        "title": "我的数据私密吗？",
+        "body": "我们遵循隐私政策。上传媒体仅用于完成您的请求。"
+      },
+      {
+        "title": "如何退款？",
+        "body": "请参阅退款政策。发送邮件至 support@vidforge.ai 并附订单详情。"
+      }
+    ]
+  },
+  "freeTools": {
+    "title": "免费工具",
+    "intro": "创作者实用工具，免费使用。",
+    "updated": "",
+    "sections": [
+      {
+        "title": "提示词增强器",
+        "body": "用 AI 建议改进视频提示词。（即将推出）"
+      },
+      {
+        "title": "画幅计算器",
+        "body": "计算任意平台的最佳尺寸。（即将推出）"
+      },
+      {
+        "title": "积分估算器",
+        "body": "生成前估算积分消耗。（即将推出）"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "使用场景",
+    "intro": "团队如何使用 VidForge 创建视频内容。",
+    "updated": "",
+    "sections": [
+      {
+        "title": "营销与广告",
+        "body": "几分钟生成产品宣传、社交广告与活动视频。"
+      },
+      {
+        "title": "社交媒体",
+        "body": "批量创建 TikTok、Reels、Shorts 短视频。"
+      },
+      {
+        "title": "电商",
+        "body": "将商品图片转化为吸引人的视频列表。"
+      },
+      {
+        "title": "教育",
+        "body": "从脚本生成解说与培训视频。"
+      },
+      {
+        "title": "娱乐",
+        "body": "原型概念、预告片与情绪短片。"
+      }
+    ]
+  },
+  "apiDocs": {
+    "title": "API 文档",
+    "intro": "以编程方式访问 VidForge 视频生成。（占位）",
+    "updated": "",
+    "sections": [
+      {
+        "title": "即将推出",
+        "body": "完整的 API 参考、认证与代码示例将在此发布。"
+      },
+      {
+        "title": "认证",
+        "body": "API 密钥与 OAuth 流程将在此说明。"
+      },
+      {
+        "title": "端点",
+        "body": "生成、状态与模型端点将在此列出。"
+      }
+    ]
+  },
+  "blog": {
+    "title": "博客",
+    "intro": "VidForge 的新闻、教程与更新。（占位）",
+    "updated": "",
+    "sections": [
+      {
+        "title": "即将推出",
+        "body": "博客正在建设中。请稍后查看文章与更新。"
+      }
+    ]
+  },
+  "compare": {
+    "title": "对比 AI 视频模型",
+    "intro": "按提供商、类型、费用与能力对比可用 AI 视频模型。",
+    "subtitle": "按提供商、类型、费用与能力对比可用 AI 视频模型。"
+  },
+  "footer": {
+    "product": "产品",
+    "resources": "资源",
+    "legal": "法律",
+    "company": "公司",
+    "privacy": "隐私",
+    "terms": "条款",
+    "refund": "退款政策",
+    "contact": "联系",
+    "reportAbuse": "举报滥用",
+    "faq": "常见问题",
+    "freeTools": "免费工具",
+    "useCases": "使用场景",
+    "compare": "对比",
+    "apiDocs": "API 文档",
+    "blog": "博客",
+    "pricing": "定价",
+    "generate": "生成",
+    "copyright": "© {year} VidForge. 保留所有权利。",
+    "help": "帮助中心"
+  },
+  "help": {
+    "title": "帮助中心",
+    "intro": "VidForge 使用指南与常见问题。",
+    "sections": [
+      {
+        "title": "快速开始",
+        "body": "注册账户，选择模型，在 /generate 提交提示词即可生成。每次生成消耗积分。"
+      },
+      {
+        "title": "计费与积分",
+        "body": "在 /billing 购买积分包或订阅。未使用的订阅积分按套餐条款处理，7 天内未使用积分可退款。"
+      },
+      {
+        "title": "API 接入",
+        "body": "参见 /api-docs 了解接口、认证与限流。"
+      },
+      {
+        "title": "内容规范",
+        "body": "禁止生成违法、侵权或欺骗性内容。如需举报，请访问 /report-abuse。"
+      },
+      {
+        "title": "账户与安全",
+        "body": "在账户设置中开启 MFA。请妥善保管凭证，如怀疑泄露请联系支持。"
+      }
+    ],
+    "updated": "最后更新：2026 年 10 月 30 日"
+  },
+  "support": {
+    "title": "支持工单",
+    "intro": "提交请求，我们将在 1–2 个工作日内回复。",
+    "submit": "提交工单",
+    "success": "工单已提交，我们将尽快联系您。",
+    "fields": {
+      "name": "姓名",
+      "email": "邮箱",
+      "subject": "主题",
+      "message": "内容",
+      "priority": "优先级"
+    }
+  },
+  "toolsPage": {
+    "title": "AI 视频工具",
+    "subtitle": "基于生成引擎的专用流水线：剪辑、去水印、口播配音。",
+    "fromCredits": "{credits} 积分起",
+    "cost": "预计消耗",
+    "balanceAfter": "生成后余额",
+    "run": "开始处理",
+    "submitting": "提交中…",
+    "cards": {
+      "generate": {
+        "title": "文生视频",
+        "description": "用提示词或参考图生成一段视频。"
+      },
+      "edit": {
+        "title": "AI 视频剪辑",
+        "description": "多段拼接、裁剪、配 BGM 与字幕。"
+      },
+      "watermark": {
+        "title": "AI 视频去水印",
+        "description": "逐帧移除视频中的台标与水印。"
+      },
+      "voiceover": {
+        "title": "AI 视频口播",
+        "description": "为视频添加配音与字幕。"
+      }
+    },
+    "edit": {
+      "title": "AI 视频剪辑",
+      "subtitle": "最多 6 段视频拼接，裁剪时间线，添加背景音乐与字幕。",
+      "clips": "片段",
+      "clipsTitle": "视频片段",
+      "addClipHint": "继续添加片段，将按顺序拼接",
+      "maxClips": "最多 6 段",
+      "duration": "时间线",
+      "options": "剪辑选项",
+      "trimStart": "开始（秒）",
+      "trimEnd": "结束（秒）",
+      "trimEndPlaceholder": "保留到结尾",
+      "caption": "字幕",
+      "captionPlaceholder": "烧录字幕（可选）",
+      "bgm": "背景音乐"
+    },
+    "watermark": {
+      "title": "AI 视频去水印",
+      "subtitle": "选择水印区域，逐帧擦除台标与水印。",
+      "source": "源视频",
+      "sourceHint": "支持 MP4 / MOV / WebM，最大 200MB。",
+      "regionTitle": "水印区域",
+      "region": "区域",
+      "method": "处理方式",
+      "methods": {
+        "auto": "自动（推荐）",
+        "delogo": "抹除 Delogo",
+        "blur": "模糊",
+        "mosaic": "马赛克"
+      },
+      "presets": {
+        "bottomRight": "右下角",
+        "topRight": "右上角",
+        "bottomLeft": "左下角",
+        "topLeft": "左上角",
+        "bottomBanner": "底部横幅",
+        "custom": "自定义"
+      }
+    },
+    "voiceover": {
+      "title": "AI 视频口播",
+      "subtitle": "把文案转成配音，自动混入 BGM 并生成字幕。",
+      "scriptTitle": "口播文案",
+      "script": "文案",
+      "scriptPlaceholder": "输入旁白内容…",
+      "scriptHint": "支持中英文，文案越长渲染越久。",
+      "scriptLength": "文案长度",
+      "background": "背景",
+      "backgroundTitle": "背景视频",
+      "backgroundHint": "可选，不上传时自动生成渐变背景。",
+      "uploaded": "已上传",
+      "auto": "自动生成",
+      "voice": "声音",
+      "voiceName": "声音名称",
+      "voicePlaceholder": "系统默认",
+      "bgm": "背景音乐",
+      "burnSubtitles": "将字幕烧录进视频",
+      "keepOriginal": "保留原视频声音"
+    }
+  }
+}

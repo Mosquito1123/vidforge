@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-video-config
+  namespace: ai-video-platform
+data:
+  NODE_ENV: "production"
+  S3_BUCKET: "aivideo"
+  S3_REGION: "us-east-1"
+  NEXT_PUBLIC_API_URL: "https://api.example.com"
+  POSTGRES_DB: "aivideo"
+  POSTGRES_USER: "aivideo"

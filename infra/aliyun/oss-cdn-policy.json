@@ -1,0 +1,41 @@
+{
+  "Version": "1",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "oss:PutObject",
+        "oss:GetObject",
+        "oss:DeleteObject",
+        "oss:AbortMultipartUpload",
+        "oss:ListParts"
+      ],
+      "Resource": [
+        "acs:oss:*:<ACCOUNT_ID>:<BUCKET>/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "oss:GetBucketInfo",
+        "oss:GetBucketAcl",
+        "oss:ListObjects"
+      ],
+      "Resource": [
+        "acs:oss:*:<ACCOUNT_ID>:<BUCKET>"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cdn:DescribeCdnDomainDetail",
+        "cdn:DescribeCdnDomainConfigs",
+        "cdn:RefreshObjectCaches",
+        "cdn:PushObjectCache"
+      ],
+      "Resource": [
+        "acs:cdn:*:<ACCOUNT_ID>:domain/<CDN_DOMAIN>"
+      ]
+    }
+  ]
+}

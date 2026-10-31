@@ -1,0 +1,39 @@
+name: ai_video_analytics
+version: "1.0.0"
+config-version: 2
+
+profile: ai_video_analytics
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  ai_video_analytics:
+    staging:
+      +materialized: view
+      +schema: staging
+    marts:
+      events:
+        +materialized: table
+        +schema: marts
+      tasks:
+        +materialized: table
+        +schema: marts
+      credits:
+        +materialized: table
+        +schema: marts
+      users:
+        +materialized: table
+        +schema: marts
+      metrics:
+        +materialized: table
+        +schema: marts

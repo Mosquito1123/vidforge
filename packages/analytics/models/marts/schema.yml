@@ -1,0 +1,113 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: User dimension with task aggregates and success metrics.
+    columns:
+      - name: user_id
+        tests: [not_null, unique]
+      - name: email
+        tests: [not_null]
+      - name: registered_at
+        tests: [not_null]
+      - name: total_tasks
+        tests: [not_null]
+      - name: completed_tasks
+        tests: [not_null]
+      - name: task_success_rate
+        tests: [not_null]
+
+  - name: fct_tasks
+    description: Task fact table with lifecycle flags and turnaround time.
+    columns:
+      - name: task_id
+        tests: [not_null, unique]
+      - name: user_id
+        tests: [not_null]
+      - name: model_id
+        tests: [not_null]
+      - name: status
+        tests: [not_null]
+      - name: created_at
+        tests: [not_null]
+      - name: is_success
+        tests: [not_null]
+      - name: turnaround_seconds
+        tests: [not_null]
+
+  - name: fct_credits
+    description: Credit transaction fact table with consumed/granted amounts.
+    columns:
+      - name: transaction_id
+        tests: [not_null, unique]
+      - name: account_id
+        tests: [not_null]
+      - name: transaction_type
+        tests: [not_null]
+      - name: amount
+        tests: [not_null]
+      - name: created_at
+        tests: [not_null]
+      - name: credits_consumed
+        tests: [not_null]
+
+  - name: fct_events
+    description: Product event fact table.
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
+      - name: event_type
+        tests: [not_null]
+      - name: occurred_at
+        tests: [not_null]
+      - name: event_date
+        tests: [not_null]
+
+  - name: mart_task_metrics
+    description: Daily task metrics including success rate and average duration.
+    columns:
+      - name: metric_date
+        tests: [not_null, unique]
+      - name: total_tasks
+        tests: [not_null]
+      - name: success_rate
+        tests: [not_null]
+      - name: avg_duration_seconds
+        tests: [not_null]
+
+  - name: mart_credit_metrics
+    description: Daily credit metrics including credits consumed.
+    columns:
+      - name: metric_date
+        tests: [not_null, unique]
+      - name: credits_consumed
+        tests: [not_null]
+
+  - name: mart_dau
+    description: Daily active users derived from product events.
+    columns:
+      - name: metric_date
+        tests: [not_null, unique]
+      - name: dau
+        tests: [not_null]
+
+  - name: mart_user_metrics
+    description: Daily user metrics including DAU and new users.
+    columns:
+      - name: metric_date
+        tests: [not_null, unique]
+      - name: dau
+        tests: [not_null]
+
+
+  - name: mart_cost_per_task
+    description: Daily cost per task metrics including credits consumed per task.
+    columns:
+      - name: metric_date
+        tests: [not_null, unique]
+      - name: total_tasks
+        tests: [not_null]
+      - name: total_credits_consumed
+        tests: [not_null]
+      - name: cost_per_task
+        tests: [not_null]

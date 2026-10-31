@@ -1,0 +1,803 @@
+{
+  "name": "Name",
+  "provider": "Provider",
+  "creditsCost": "Credits cost",
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "close": "Close",
+    "dismiss": "Dismiss",
+    "retry": "Retry",
+    "refresh": "Refresh",
+    "view": "View",
+    "noData": "No data",
+    "error": "Something went wrong",
+    "success": "Success",
+    "credits": "credits",
+    "verified": "verified",
+    "unverified": "unverified"
+  },
+  "nav": {
+    "brand": "VidForge",
+    "generate": "Generate",
+    "dashboard": "Dashboard",
+    "pricing": "Pricing",
+    "billing": "Billing",
+    "account": "Account",
+    "login": "Log in",
+    "signup": "Sign up",
+    "logout": "Log out",
+    "language": "Language",
+    "compare": "Compare",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "faq": "FAQ",
+    "primary": "Primary",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "tools": "Tools"
+  },
+  "hero": {
+    "title": "Generate stunning videos with AI",
+    "subtitle": "Turn text and images into cinematic videos in seconds.",
+    "cta": "Start generating",
+    "secondary": "View pricing"
+  },
+  "tools": {
+    "prompt": "Prompt",
+    "model": "Model",
+    "duration": "Duration (s)",
+    "aspectRatio": "Aspect ratio",
+    "referenceImage": "Reference image (optional)",
+    "upload": "Click or drag to upload",
+    "uploadHint": "Images or video up to {max}MB",
+    "fileTooLarge": "File too large. Max {max}MB.",
+    "progress": "Progress",
+    "preview": "Preview",
+    "noVideoYet": "No video yet",
+    "image": "Image",
+    "video": "Video",
+    "replaceFile": "Replace file",
+    "removeFile": "Remove file"
+  },
+  "generate": {
+    "title": "Generate video",
+    "promptRequired": "Prompt is required",
+    "promptTooLong": "Prompt too long",
+    "selectModel": "Select a model",
+    "invalidDuration": "Invalid duration",
+    "invalidAspect": "Invalid aspect ratio",
+    "fixErrors": "Fix form errors",
+    "pleaseLogin": "Please log in",
+    "authRequired": "Authentication required",
+    "uploadFailed": "Upload failed",
+    "generationComplete": "Generation complete",
+    "generationFailed": "Generation failed",
+    "generationStarted": "Generation started",
+    "failedToStart": "Failed to start generation",
+    "newVideo": "New video",
+    "viewInDashboard": "View in dashboard",
+    "task": "Task",
+    "before": "Before",
+    "after": "After",
+    "options": "Options",
+    "generating": "Generating...",
+    "generate": "Generate",
+    "subtitle": "Describe an idea, pick a model, and generate. Progress streams in live.",
+    "promptSection": "Describe your idea",
+    "promptPlaceholder": "A lone astronaut walking through a neon-lit market at night, cinematic, shallow depth of field…",
+    "promptHint": "Describe subject, action, setting, camera and lighting for best results.",
+    "promptShortcut": "⌘/Ctrl + Enter to generate",
+    "stylePresets": "Style presets",
+    "styles": {
+      "cinematic": "Cinematic",
+      "cyberpunk": "Cyberpunk",
+      "product": "Product ad",
+      "anime": "Anime",
+      "nature": "Nature",
+      "retro": "Retro 80s"
+    },
+    "examplesTitle": "Try an example",
+    "example1": "A paper boat sailing down a rainy city street, macro shot, warm streetlights",
+    "example2": "Slow dolly through a misty pine forest at sunrise, volumetric light",
+    "example3": "A robot barista pouring latte art in a tiny cafe, cozy lighting, 35mm",
+    "imageModel": "Image",
+    "videoModel": "Video",
+    "creditsPerRun": "{credits} credits / run",
+    "advanced": "Advanced options",
+    "expand": "Show",
+    "collapse": "Hide",
+    "negativePrompt": "Negative prompt",
+    "negativePromptPlaceholder": "blurry, low quality, distorted hands, watermark",
+    "negativePromptHint": "Things to avoid in the result.",
+    "seed": "Seed",
+    "seedPlaceholder": "Random",
+    "randomSeed": "Randomise seed",
+    "resolution": "Resolution",
+    "autoOption": "Auto (match aspect ratio)",
+    "estimatedCost": "Estimated cost",
+    "balanceAfter": "Balance after",
+    "insufficientCredits": "Not enough credits for this run.",
+    "topUp": "Top up credits",
+    "cancel": "Cancel",
+    "cancelled": "Generation cancelled",
+    "regenerate": "Regenerate",
+    "download": "Download",
+    "downloadFailed": "Download failed",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied",
+    "copyFailed": "Could not copy link",
+    "emptyPreviewTitle": "Your result appears here",
+    "emptyPreviewHint": "Submit a prompt to start generating. Typical runs take 20–60 seconds.",
+    "stagesLabel": "Generation stages",
+    "stage": {
+      "queued": "Queued",
+      "running": "Generating",
+      "post_processing": "Post-processing",
+      "done": "Done"
+    },
+    "status": {
+      "queued": "Queued",
+      "running": "Generating",
+      "post_processing": "Finishing",
+      "done": "Done",
+      "failed": "Failed",
+      "cancelled": "Cancelled",
+      "blocked": "Blocked"
+    },
+    "failedTitle": "Generation failed",
+    "failedHint": "Credits were refunded automatically. Try again or adjust the prompt.",
+    "watermarkNotice": "Free-tier output includes a watermark.",
+    "upgradeToRemove": "Remove watermark",
+    "moderationBlocked": "Blocked by content review",
+    "appeal": "Appeal",
+    "recentRuns": "Recent generations",
+    "untitledPrompt": "Untitled prompt",
+    "unknownModel": "Unknown model"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Your generation tasks",
+    "loadingTasks": "Loading tasks...",
+    "failedToLoad": "Failed to load tasks",
+    "refreshed": "Refreshed",
+    "noTasks": "No tasks yet. Create your first one.",
+    "generateVideo": "Generate video",
+    "untitled": "Untitled task",
+    "viewVideo": "View video",
+    "retryNotImplemented": "Retry not implemented",
+    "retry": "Retry"
+  },
+  "pricing": {
+    "title": "Simple, transparent pricing",
+    "subtitle": "Pay for what you generate. Cancel anytime.",
+    "subscribe": "Subscribe",
+    "couldNotLoad": "Could not load plans",
+    "checkoutFailed": "Checkout failed",
+    "checkoutCreated": "Checkout created",
+    "noRedirect": "No redirect URL"
+  },
+  "billing": {
+    "title": "Billing",
+    "subtitle": "Manage subscription, credits, and invoices",
+    "credits": "Credits",
+    "currentBalance": "Current balance: {balance}",
+    "noPackages": "No credit packages available.",
+    "buyCustomCredits": "Buy custom credits",
+    "howManyCredits": "How many credits?",
+    "subscription": "Subscription",
+    "noActiveSubscription": "No active subscription",
+    "cancelsAtPeriodEnd": "Cancels at period end",
+    "currentPeriodEnds": "Current period ends: {date}",
+    "cancelSubscription": "Cancel subscription",
+    "cancelAtPeriodEnd": "Cancel subscription at period end?",
+    "subscriptionCanceled": "Subscription canceled",
+    "cancelFailed": "Cancel failed",
+    "invoices": "Invoices",
+    "invoiceCount": "{count} invoice(s)",
+    "noInvoices": "No invoices yet.",
+    "view": "View",
+    "paymentHistory": "Payment history",
+    "paymentCount": "{count} payment(s)",
+    "noPayments": "No payments yet.",
+    "viewPlans": "View plans",
+    "checkoutFailed": "Checkout failed"
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "loginMethod": "Login method",
+    "loginSubtitle": "Log in to your VidForge account",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "No account?",
+    "signup": "Sign up",
+    "loggingIn": "Logging in...",
+    "login": "Log in",
+    "emailRequired": "Email is required",
+    "invalidEmail": "Invalid email",
+    "passwordRequired": "Password is required",
+    "mfaRequired": "MFA required",
+    "enterAuthenticatorCode": "Enter your authenticator code",
+    "mfaFailed": "MFA failed",
+    "loginFailed": "Login failed",
+    "registrationFailed": "Registration failed",
+    "accountCreated": "Account created",
+    "mfaCodeRequired": "MFA code is required",
+    "authenticatorCode": "Authenticator code",
+    "register": "Create account",
+    "name": "Name",
+    "confirmPassword": "Confirm password",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginLink": "Log in"
+  },
+  "account": {
+    "title": "Account settings",
+    "profile": "Profile",
+    "updateDetails": "Update your account details",
+    "name": "Name",
+    "avatarUrl": "Avatar URL",
+    "bio": "Bio",
+    "locale": "Locale",
+    "saveProfile": "Save profile",
+    "profileUpdated": "Profile updated",
+    "saveFailed": "Save failed",
+    "mfa": "Multi-factor authentication",
+    "mfaDescription": "Optional TOTP via authenticator app",
+    "status": "Status: {status}",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "setupMfa": "Set up MFA",
+    "starting": "Starting...",
+    "mfaSetupFailed": "MFA setup failed",
+    "secret": "Secret: {secret}",
+    "enterCode": "Enter 6-digit code",
+    "enableMfa": "Enable MFA",
+    "enabling": "Enabling...",
+    "enableFailed": "Enable failed",
+    "mfaEnabled": "MFA enabled",
+    "enterCodeToDisable": "Enter code to disable",
+    "disableMfa": "Disable MFA",
+    "disabling": "Disabling...",
+    "disableFailed": "Disable failed",
+    "mfaDisabled": "MFA disabled",
+    "sessions": "Sessions",
+    "manageSessions": "Manage active sessions",
+    "noSessions": "No sessions",
+    "revoke": "Revoke",
+    "revokeFailed": "Revoke failed",
+    "sessionRevoked": "Session revoked",
+    "security": "Security",
+    "securityDescription": "Sign-in protection, verified identity, and recent activity",
+    "phoneTitle": "Phone number",
+    "phoneDescription": "Sign in with a phone number and receive security codes",
+    "kycTitle": "Real-name verification",
+    "kycDescription": "Verify your identity to unlock restricted features",
+    "manage": "Manage",
+    "recentLogins": "Recent sign-in activity",
+    "riskScore": "Risk {score} ({level})",
+    "loading": "Loading..."
+  },
+  "phone": {
+    "title": "Phone settings",
+    "subtitle": "Sign in with a one-time code sent to your phone",
+    "bindingTitle": "Phone number",
+    "bindingDescription": "Add a phone number to sign in without a password",
+    "phoneNumber": "Phone number",
+    "phonePlaceholder": "+8613800138000",
+    "code": "Verification code",
+    "codePlaceholder": "6-digit code",
+    "sendCode": "Send code",
+    "resend": "Resend code",
+    "sending": "Sending...",
+    "resendIn": "Resend in {seconds}s",
+    "codeSent": "Code sent",
+    "codeSentTo": "A code was sent to {phone}",
+    "debugCode": "Development code: {code}",
+    "codeRequired": "Enter the verification code",
+    "invalidPhone": "Enter a valid phone number",
+    "sendFailed": "Failed to send the code",
+    "bind": "Bind phone",
+    "binding": "Binding...",
+    "bound": "Phone number bound",
+    "bindFailed": "Failed to bind phone number",
+    "unbind": "Unbind phone",
+    "unbinding": "Unbinding...",
+    "unbound": "Phone number unbound",
+    "unbindFailed": "Failed to unbind phone number",
+    "unbindDescription": "Enter the code sent to your phone to unbind it. You will not be able to sign in with this number afterwards.",
+    "confirmUnbind": "Confirm unbind",
+    "unbindCodeSent": "A code was sent to your bound phone",
+    "verifiedAt": "Verified at",
+    "backToAccount": "Back to account",
+    "phoneTab": "Phone",
+    "emailTab": "Email",
+    "loginWithPhone": "Sign in with phone",
+    "registerWithPhone": "Create account with phone",
+    "loginHint": "We will send a one-time code. Numbers without an account are registered automatically.",
+    "registerHint": "We will send a one-time code to verify your number.",
+    "loginFailed": "Sign-in failed",
+    "registerFailed": "Registration failed"
+  },
+  "risk": {
+    "challengeRequired": "Additional verification required",
+    "description": "We noticed something unusual about this sign-in. Enter the code sent to {phone} to continue.",
+    "yourPhone": "your phone",
+    "code": "Verification code",
+    "codePlaceholder": "6-digit code",
+    "codeRequired": "Enter the verification code",
+    "verify": "Verify",
+    "verifying": "Verifying...",
+    "verified": "Verification complete",
+    "failed": "Verification failed",
+    "resend": "Resend code",
+    "resending": "Sending...",
+    "resent": "Code resent",
+    "resendIn": "Resend in {seconds}s",
+    "cancel": "Cancel",
+    "demoCode": "Development code: {code}"
+  },
+  "kyc": {
+    "title": "Real-name verification",
+    "subtitle": "Verify your identity with your government-issued ID",
+    "statusTitle": "Verification status",
+    "status": {
+      "unverified": "Not verified",
+      "pending": "Under review",
+      "verified": "Verified",
+      "rejected": "Rejected"
+    },
+    "statusDescription": {
+      "unverified": "Submit your name and ID number to verify your identity.",
+      "pending": "Your submission is being reviewed.",
+      "verified": "Your identity has been verified.",
+      "rejected": "Your last submission was rejected. You can submit again."
+    },
+    "start": "Start verification",
+    "resubmit": "Submit again",
+    "alreadyVerified": "Your identity is verified. Contact support if your details have changed.",
+    "pendingHint": "You will be notified once the review is complete.",
+    "formTitle": "Identity details",
+    "formDescription": "Enter the details exactly as they appear on your ID card",
+    "realName": "Full name",
+    "realNamePlaceholder": "Name on your ID card",
+    "idNumber": "ID number",
+    "idNumberPlaceholder": "18-digit ID number",
+    "idNumberHint": "Your ID number is checked locally and only stored in masked form.",
+    "nameInvalid": "Enter your full name",
+    "idNumberInvalid": "Enter a valid 18-digit ID number",
+    "frontUrl": "ID card front image URL (optional)",
+    "backUrl": "ID card back image URL (optional)",
+    "privacyNote": "We never store your full name or ID number. Only a masked version and a one-way hash are kept.",
+    "submit": "Submit for verification",
+    "submitting": "Submitting...",
+    "submitFailed": "Submission failed",
+    "verifiedToast": "Identity verified",
+    "rejectedToast": "Verification rejected",
+    "rejectionReason": "Rejection reason: {reason}",
+    "submittedAt": "Submitted at",
+    "verifiedAt": "Verified at",
+    "age": "Age",
+    "provider": "Provider",
+    "backToAccount": "Back to account",
+    "phoneSettings": "Phone settings",
+    "loadFailed": "Failed to load verification status"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "This Privacy Policy explains how VidForge collects, uses, and protects your information when you use our AI video generation service.",
+    "updated": "Last updated: October 30, 2026",
+    "sections": [
+      {
+        "title": "Information we collect",
+        "body": "We collect account information (name, email), uploaded media and prompts, usage data, billing records, and technical data such as IP address and device type needed to operate the service."
+      },
+      {
+        "title": "How we use your information",
+        "body": "We use your information to provide and improve the service, process payments, send transactional notices, prevent abuse, and comply with legal obligations. We do not sell your personal data."
+      },
+      {
+        "title": "Data sharing",
+        "body": "We share data with trusted service providers (hosting, payment processors, AI model providers) only as needed to operate VidForge. All providers are bound by confidentiality obligations."
+      },
+      {
+        "title": "Data retention",
+        "body": "We retain your data while your account is active and for a reasonable period afterwards for legal and billing purposes. You may request deletion at any time."
+      },
+      {
+        "title": "Your rights",
+        "body": "You may access, correct, export, or delete your personal data. Contact support@vidforge.ai to exercise these rights."
+      },
+      {
+        "title": "Cookies",
+        "body": "We use essential cookies for authentication and preferences, and optional analytics cookies. You can control cookies in your browser settings."
+      },
+      {
+        "title": "Contact",
+        "body": "Questions about this policy? Email support@vidforge.ai."
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "intro": "By using VidForge you agree to these Terms of Service. Please read them carefully.",
+    "updated": "Last updated: October 30, 2026",
+    "sections": [
+      {
+        "title": "Acceptance",
+        "body": "By creating an account or using the service you agree to be bound by these terms and our Privacy Policy."
+      },
+      {
+        "title": "Service description",
+        "body": "VidForge provides AI-powered video generation from text and images. Features and models may change over time."
+      },
+      {
+        "title": "Accounts",
+        "body": "You are responsible for safeguarding your account credentials and for all activity under your account."
+      },
+      {
+        "title": "Acceptable use",
+        "body": "You may not use VidForge to generate illegal, infringing, harassing, or deceptive content, or to violate any law or third-party rights."
+      },
+      {
+        "title": "Credits and billing",
+        "body": "Credits are consumed per generation. Subscriptions and credit packages are billed as described on the pricing page. Unused credits may expire per plan terms."
+      },
+      {
+        "title": "Intellectual property",
+        "body": "You retain rights to content you generate subject to the model provider's terms. VidForge retains rights to the platform and its branding."
+      },
+      {
+        "title": "Termination",
+        "body": "We may suspend or terminate accounts that violate these terms. You may cancel your account at any time."
+      },
+      {
+        "title": "Disclaimer and liability",
+        "body": "The service is provided as-is without warranties. To the maximum extent permitted by law, VidForge is not liable for indirect or consequential damages."
+      },
+      {
+        "title": "Changes",
+        "body": "We may update these terms; continued use constitutes acceptance of the updated terms."
+      }
+    ]
+  },
+  "refund": {
+    "title": "Refund Policy",
+    "intro": "We want you to be happy with VidForge. This policy explains refunds for subscriptions and credits.",
+    "updated": "Last updated: October 30, 2026",
+    "sections": [
+      {
+        "title": "Eligibility",
+        "body": "Refund requests within 7 days of purchase for unused subscription periods or unused credit packages may be eligible."
+      },
+      {
+        "title": "Non-refundable",
+        "body": "Credits already consumed for generations are non-refundable. Custom enterprise agreements follow their own terms."
+      },
+      {
+        "title": "Process",
+        "body": "Email support@vidforge.ai with your account email and order details. We aim to respond within 2 business days."
+      },
+      {
+        "title": "Credits",
+        "body": "Unused credits from a refunded package are removed from your balance. Promotional credits are non-refundable."
+      },
+      {
+        "title": "Contact",
+        "body": "Questions? Email support@vidforge.ai."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact Us",
+    "intro": "Get in touch with the VidForge team.",
+    "updated": "",
+    "sections": [
+      {
+        "title": "Email",
+        "body": "support@vidforge.ai — for support, billing, and account questions."
+      },
+      {
+        "title": "Business inquiries",
+        "body": "partners@vidforge.ai — for partnerships and enterprise plans."
+      },
+      {
+        "title": "Abuse reports",
+        "body": "report@vidforge.ai — for reporting abusive or illegal content. See /report-abuse."
+      },
+      {
+        "title": "Response time",
+        "body": "We typically respond within 1–2 business days."
+      }
+    ]
+  },
+  "reportAbuse": {
+    "title": "Report Abuse",
+    "intro": "Help us keep VidForge safe. Report abusive, illegal, or rights-infringing content.",
+    "updated": "",
+    "sections": [
+      {
+        "title": "What to report",
+        "body": "Illegal content, non-consensual intimate imagery, harassment, copyright infringement, or attempts to evade safety systems."
+      },
+      {
+        "title": "How to report",
+        "body": "Email report@vidforge.ai with the task ID or URL, a description, and any supporting evidence. Do not include the abusive content itself if avoidable."
+      },
+      {
+        "title": "Response",
+        "body": "We review reports promptly and may remove content, suspend accounts, or notify authorities as required."
+      },
+      {
+        "title": "Emergency",
+        "body": "If someone is in immediate danger, contact local emergency services first."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "intro": "Answers to common questions about VidForge.",
+    "updated": "",
+    "sections": [
+      {
+        "title": "How does VidForge work?",
+        "body": "Enter a prompt (and optional reference image), choose a model, and we generate a video. Credits are deducted per generation."
+      },
+      {
+        "title": "What models are available?",
+        "body": "See the Compare page for the full list of available models, providers, and costs."
+      },
+      {
+        "title": "How much does it cost?",
+        "body": "Plans start on the Pricing page. You can also buy credit packages on the Billing page."
+      },
+      {
+        "title": "Can I use generated videos commercially?",
+        "body": "Commercial use depends on your plan and the model provider's terms. Check plan features for details."
+      },
+      {
+        "title": "How long does generation take?",
+        "body": "Most videos complete within a few minutes. Complex or longer videos may take longer."
+      },
+      {
+        "title": "Is my data private?",
+        "body": "We follow our Privacy Policy. Uploaded media is used only to fulfill your request."
+      },
+      {
+        "title": "How do I get a refund?",
+        "body": "See the Refund Policy. Email support@vidforge.ai with your order details."
+      }
+    ]
+  },
+  "freeTools": {
+    "title": "Free Tools",
+    "intro": "Handy utilities for creators. Free to use.",
+    "updated": "",
+    "sections": [
+      {
+        "title": "Prompt enhancer",
+        "body": "Improve your video prompts with AI suggestions. (Coming soon)"
+      },
+      {
+        "title": "Aspect ratio calculator",
+        "body": "Calculate optimal dimensions for any platform. (Coming soon)"
+      },
+      {
+        "title": "Credit estimator",
+        "body": "Estimate credit cost before generating. (Coming soon)"
+      }
+    ]
+  },
+  "useCases": {
+    "title": "Use Cases",
+    "intro": "How teams use VidForge to create video content.",
+    "updated": "",
+    "sections": [
+      {
+        "title": "Marketing and ads",
+        "body": "Generate product promos, social ads, and campaign videos in minutes."
+      },
+      {
+        "title": "Social media",
+        "body": "Create short-form videos for TikTok, Reels, and Shorts at scale."
+      },
+      {
+        "title": "E-commerce",
+        "body": "Turn product photos into engaging video listings."
+      },
+      {
+        "title": "Education",
+        "body": "Produce explainer and training videos from scripts."
+      },
+      {
+        "title": "Entertainment",
+        "body": "Prototype concepts, trailers, and mood reels."
+      }
+    ]
+  },
+  "apiDocs": {
+    "title": "API Documentation",
+    "intro": "Programmatic access to VidForge video generation. (Placeholder)",
+    "updated": "",
+    "sections": [
+      {
+        "title": "Coming soon",
+        "body": "Full API reference, authentication, and code samples will be published here."
+      },
+      {
+        "title": "Authentication",
+        "body": "API keys and OAuth flows will be documented here."
+      },
+      {
+        "title": "Endpoints",
+        "body": "Generation, status, and model endpoints will be listed here."
+      }
+    ]
+  },
+  "blog": {
+    "title": "Blog",
+    "intro": "News, tutorials, and updates from VidForge. (Placeholder)",
+    "updated": "",
+    "sections": [
+      {
+        "title": "Coming soon",
+        "body": "Our blog is under construction. Check back soon for articles and updates."
+      }
+    ]
+  },
+  "compare": {
+    "title": "Compare AI Video Models",
+    "intro": "Compare available AI video models by provider, type, cost, and capabilities.",
+    "subtitle": "Compare available AI video models by provider, type, cost, and capabilities."
+  },
+  "footer": {
+    "product": "Product",
+    "resources": "Resources",
+    "legal": "Legal",
+    "company": "Company",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "refund": "Refund Policy",
+    "contact": "Contact",
+    "reportAbuse": "Report Abuse",
+    "faq": "FAQ",
+    "freeTools": "Free Tools",
+    "useCases": "Use Cases",
+    "compare": "Compare",
+    "apiDocs": "API Docs",
+    "blog": "Blog",
+    "pricing": "Pricing",
+    "generate": "Generate",
+    "copyright": "© {year} VidForge. All rights reserved.",
+    "help": "Help Center"
+  },
+  "help": {
+    "title": "Help Center",
+    "intro": "Guides and answers for using VidForge.",
+    "sections": [
+      {
+        "title": "Getting started",
+        "body": "Create an account, choose a model, and submit your first prompt in /generate. Credits are deducted per generation."
+      },
+      {
+        "title": "Billing and credits",
+        "body": "Buy credit packages or subscribe on /billing. Unused subscription credits follow plan terms. Refunds within 7 days for unused credits."
+      },
+      {
+        "title": "API access",
+        "body": "See /api-docs for endpoints, authentication, and rate limits."
+      },
+      {
+        "title": "Content policy",
+        "body": "Do not generate illegal, infringing, or deceptive content. Report abuse via /report-abuse."
+      },
+      {
+        "title": "Account and security",
+        "body": "Enable MFA in account settings. Keep credentials safe; contact support if compromised."
+      }
+    ],
+    "updated": "Last updated: 2026-10-30"
+  },
+  "support": {
+    "title": "Support ticket",
+    "intro": "Submit a request and we will get back to you within 1–2 business days.",
+    "submit": "Submit ticket",
+    "success": "Ticket submitted. We will contact you soon.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "priority": "Priority"
+    }
+  },
+  "toolsPage": {
+    "title": "AI video tools",
+    "subtitle": "Purpose-built pipelines on top of the generation engine — edit, clean and narrate your footage.",
+    "fromCredits": "from {credits} credits",
+    "cost": "Estimated cost",
+    "balanceAfter": "Balance after",
+    "run": "Run tool",
+    "submitting": "Submitting…",
+    "cards": {
+      "generate": {
+        "title": "Text to video",
+        "description": "Generate a clip from a prompt or a reference image."
+      },
+      "edit": {
+        "title": "AI video edit",
+        "description": "Merge clips, trim, add background music and a caption."
+      },
+      "watermark": {
+        "title": "Watermark removal",
+        "description": "Remove logos and watermarks from an existing video."
+      },
+      "voiceover": {
+        "title": "AI voiceover",
+        "description": "Add narration and subtitles to any video."
+      }
+    },
+    "edit": {
+      "title": "AI video edit",
+      "subtitle": "Merge up to 6 clips, trim the timeline, add background music and a caption.",
+      "clips": "Clips",
+      "clipsTitle": "Clips",
+      "addClipHint": "Add more clips to merge them in order",
+      "maxClips": "Up to 6 clips",
+      "duration": "Timeline",
+      "options": "Edit options",
+      "trimStart": "Start (s)",
+      "trimEnd": "End (s)",
+      "trimEndPlaceholder": "Keep to the end",
+      "caption": "Caption",
+      "captionPlaceholder": "Burned-in caption (optional)",
+      "bgm": "Background music"
+    },
+    "watermark": {
+      "title": "AI watermark removal",
+      "subtitle": "Pick the watermark region and we remove it frame by frame.",
+      "source": "Source video",
+      "sourceHint": "MP4 / MOV / WebM up to 200 MB.",
+      "regionTitle": "Watermark region",
+      "region": "Region",
+      "method": "Method",
+      "methods": {
+        "auto": "Auto (recommended)",
+        "delogo": "Delogo",
+        "blur": "Blur",
+        "mosaic": "Mosaic"
+      },
+      "presets": {
+        "bottomRight": "Bottom right",
+        "topRight": "Top right",
+        "bottomLeft": "Bottom left",
+        "topLeft": "Top left",
+        "bottomBanner": "Bottom banner",
+        "custom": "Custom"
+      }
+    },
+    "voiceover": {
+      "title": "AI voiceover",
+      "subtitle": "Turn a script into narration, mix background music and add subtitles.",
+      "scriptTitle": "Narration script",
+      "script": "Script",
+      "scriptPlaceholder": "Write what the narrator should say…",
+      "scriptHint": "Chinese and English are both supported. Longer scripts take longer to render.",
+      "scriptLength": "Script length",
+      "background": "Background",
+      "backgroundTitle": "Background video",
+      "backgroundHint": "Optional — without a video we generate a gradient background.",
+      "uploaded": "Uploaded",
+      "auto": "Auto-generated",
+      "voice": "Voice",
+      "voiceName": "Voice name",
+      "voicePlaceholder": "System default",
+      "bgm": "Background music",
+      "burnSubtitles": "Burn subtitles into the video",
+      "keepOriginal": "Keep original audio"
+    }
+  }
+}

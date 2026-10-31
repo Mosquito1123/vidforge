@@ -1,0 +1,23 @@
+# Copy to terraform.tfvars and fill in real values. Never commit the copy.
+#
+# Credentials are NOT set here. Export them instead:
+#   export ALICLOUD_ACCESS_KEY="..."
+#   export ALICLOUD_SECRET_KEY="..."
+#   export TF_VAR_cdn_auth_key_a="..."
+#   export TF_VAR_cdn_auth_key_b="..."
+
+region      = "cn-shanghai"
+project     = "aivideo"
+environment = "prod"
+bucket_name = "aivideo-prod-cn"
+cdn_domain  = "cdn.example.com"
+
+cors_allowed_origins = ["https://app.example.com"]
+
+# Optional: leave empty and upload the certificate in the Aliyun console.
+# ssl_certificate_pem = ""
+# ssl_certificate_key = ""
+
+tags = {
+  Owner = "platform-team"
+}

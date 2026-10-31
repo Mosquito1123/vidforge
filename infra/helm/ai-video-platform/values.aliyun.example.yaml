@@ -1,0 +1,64 @@
+# Aliyun production overrides (examples only; no real credentials).
+#
+#   helm upgrade --install ai-video ./infra/helm/ai-video-platform \
+#     -f ./infra/helm/ai-video-platform/values.aliyun.example.yaml \
+#     --set secrets.DATABASE_URL="$DATABASE_URL" \
+#     --set secrets.REDIS_URL="$REDIS_URL" \
+#     --set secrets.JWT_SECRET="$JWT_SECRET" \
+#     --set secrets.ALIYUN_OSS_ACCESS_KEY_ID="$ALIYUN_OSS_ACCESS_KEY_ID" \
+#     --set secrets.ALIYUN_OSS_ACCESS_KEY_SECRET="$ALIYUN_OSS_ACCESS_KEY_SECRET" \
+#     --set secrets.CDN_AUTH_KEY="$CDN_AUTH_KEY"
+
+config:
+  NODE_ENV: production
+  STORAGE_PROVIDER: aliyun
+
+  ALIYUN_OSS_BUCKET: aivideo-prod-cn
+  ALIYUN_OSS_REGION: cn-shanghai
+  # Internal endpoint: traffic stays inside Aliyun and avoids egress charges.
+  ALIYUN_OSS_ENDPOINT: https://oss-cn-shanghai-internal.aliyuncs.com
+  ALIYUN_OSS_USE_INTERNAL: "true"
+  ALIYUN_OSS_PUBLIC_BASE_URL: https://cdn.example.com
+
+  CDN_DOMAIN: https://cdn.example.com
+  CDN_URL_TTL_SECONDS: "3600"
+
+  NEXT_PUBLIC_API_URL: https://api.example.com
+  NEXT_PUBLIC_CDN_URL: https://cdn.example.com
+
+services:
+  api:
+    replicaCount: 2
+    image:
+      tag: "0.1.0"
+  worker:
+    replicaCount: 2
+    image:
+      tag: "0.1.0"
+    env:
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+  web:
+    replicaCount: 2
+    image:
+      tag: "0.1.0"
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 2048m
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  tls:
+    - secretName: ai-video-tls
+      hosts:
+        - app.example.com
+        - api.example.com
+  hosts:
+    - host: app.example.com
+      service: web
+      port: 3000
+    - host: api.example.com
+      service: api
+      port: 4000

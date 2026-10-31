@@ -1,0 +1,28 @@
+# Copy to ~/.dbt/profiles.yml (or set DBT_PROFILES_DIR) and fill in secrets.
+ai_video_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: clickhouse
+      schema: analytics
+      host: localhost
+      port: 8123
+      user: default
+      password: ""
+      secure: false
+      verify: false
+      connect_timeout: 10
+      send_receive_timeout: 300
+      sync_request_timeout: 5
+      compress: false
+      cluster: ""
+      check_exchange: true
+    prod:
+      type: clickhouse
+      schema: analytics
+      host: clickhouse.internal
+      port: 8123
+      user: analytics
+      password: "{{ env_var('CLICKHOUSE_PASSWORD') }}"
+      secure: true
+      verify: true

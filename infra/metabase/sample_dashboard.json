@@ -1,0 +1,72 @@
+{
+  "name": "AI Video Analytics",
+  "description": "Sample dashboard for AI video platform metrics.",
+  "cards": [
+    {
+      "name": "Task success rate by day",
+      "display": "line",
+      "dataset_query": {
+        "type": "native",
+        "native": {
+          "query": "SELECT metric_date, total_tasks, successful_tasks, failed_tasks, success_rate FROM analytics.mart_task_metrics ORDER BY metric_date"
+        },
+        "database": "analytics"
+      }
+    },
+    {
+      "name": "Average task duration by day",
+      "display": "line",
+      "dataset_query": {
+        "type": "native",
+        "native": {
+          "query": "SELECT metric_date, avg_duration_seconds, median_duration_seconds FROM analytics.mart_task_metrics ORDER BY metric_date"
+        },
+        "database": "analytics"
+      }
+    },
+    {
+      "name": "Credits consumed by day",
+      "display": "bar",
+      "dataset_query": {
+        "type": "native",
+        "native": {
+          "query": "SELECT metric_date, credits_consumed, credits_granted, net_credits_consumed FROM analytics.mart_credit_metrics ORDER BY metric_date"
+        },
+        "database": "analytics"
+      }
+    },
+    {
+      "name": "Daily active users",
+      "display": "line",
+      "dataset_query": {
+        "type": "native",
+        "native": {
+          "query": "SELECT metric_date, dau, new_users FROM analytics.mart_user_metrics ORDER BY metric_date"
+        },
+        "database": "analytics"
+      }
+    },
+    {
+      "name": "Cost per task by day",
+      "display": "line",
+      "dataset_query": {
+        "type": "native",
+        "native": {
+          "query": "SELECT metric_date, total_tasks, total_credits_consumed, cost_per_task FROM analytics.mart_cost_per_task ORDER BY metric_date"
+        },
+        "database": "analytics"
+      }
+    },
+    {
+      "name": "Top models by task volume",
+      "display": "table",
+      "dataset_query": {
+        "type": "native",
+        "native": {
+          "query": "SELECT model_id, count() AS tasks, countIf(is_success = 1) AS successful, avgIf(turnaround_seconds, is_success = 1) AS avg_duration_seconds FROM analytics.fct_tasks GROUP BY model_id ORDER BY tasks DESC"
+        },
+        "database": "analytics"
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: Cleaned application users from the raw users table.
+    columns:
+      - name: user_id
+        description: Surrogate user identifier.
+        tests: [not_null, unique]
+      - name: email
+        description: User email address.
+        tests: [not_null]
+      - name: created_at
+        description: Account creation timestamp.
+        tests: [not_null]
+
+  - name: stg_tasks
+    description: Cleaned video generation tasks from the raw tasks table.
+    columns:
+      - name: task_id
+        description: Task identifier.
+        tests: [not_null, unique]
+      - name: user_id
+        description: Owning user.
+        tests: [not_null]
+      - name: model_id
+        description: Model used for generation.
+        tests: [not_null]
+      - name: status
+        description: Task lifecycle status.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PENDING', 'RUNNING', 'COMPLETED', 'FAILED', 'CANCELLED']
+      - name: progress
+        description: Completion progress percentage.
+      - name: created_at
+        description: Task creation timestamp.
+        tests: [not_null]
+      - name: updated_at
+        description: Last status update timestamp.
+
+  - name: stg_credits
+    description: Cleaned credit ledger transactions.
+    columns:
+      - name: transaction_id
+        description: Transaction identifier.
+        tests: [not_null, unique]
+      - name: account_id
+        description: Credit account identifier.
+        tests: [not_null]
+      - name: transaction_type
+        description: Transaction direction.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['CREDIT', 'DEBIT', 'REFUND']
+      - name: amount
+        description: Transaction amount.
+        tests: [not_null]
+      - name: created_at
+        description: Transaction timestamp.
+        tests: [not_null]
+
+  - name: stg_events
+    description: Cleaned product events from Kafka.
+    columns:
+      - name: event_id
+        description: Event identifier.
+        tests: [not_null, unique]
+      - name: event_type
+        description: Event name.
+        tests: [not_null]
+      - name: occurred_at
+        description: Event occurrence timestamp.
+        tests: [not_null]
