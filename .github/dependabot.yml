@@ -1,26 +1,38 @@
 version: 2
 
+# Keep the queue short: one grouped PR per ecosystem, no automatic major bumps.
 updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: weekly
-      day: monday
-    open-pull-requests-limit: 5
+      interval: monthly
+    open-pull-requests-limit: 2
     groups:
-      next:
-        patterns: ["next", "react", "react-dom", "eslint-config-next"]
-      nest:
-        patterns: ["@nestjs/*"]
+      all:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: pip
     directory: "/services/worker"
     schedule:
-      interval: weekly
-      day: monday
-    open-pull-requests-limit: 5
+      interval: monthly
+    open-pull-requests-limit: 1
+    groups:
+      all:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: monthly
+    open-pull-requests-limit: 1
+    groups:
+      all:
+        patterns: ["*"]
