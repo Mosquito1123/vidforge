@@ -4,7 +4,8 @@
 [![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
 [![NestJS](https://img.shields.io/badge/NestJS-12-e0234e)](https://nestjs.com/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-worker-009688)](https://fastapi.tiangolo.com/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#贡献)
+[![CI](https://github.com/Mosquito1123/vidforge/actions/workflows/ci.yml/badge.svg)](https://github.com/Mosquito1123/vidforge/actions/workflows/ci.yml)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 面向国内用户发布的 AI 视频 / 影片生成 SaaS：文生视频、图生视频、AI 视频剪辑、去水印、口播配音，配套积分与订阅计费、开放 API、运营后台。
 
@@ -223,7 +224,10 @@ cd services/worker && python3 -m pytest -q   # Worker 测试
 
 ## 贡献
 
-欢迎提交 Issue 与 PR。提交前请确保：
+欢迎提交 Issue 与 PR，详细流程见 [CONTRIBUTING.md](CONTRIBUTING.md)，请遵守 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)。
+安全问题请勿公开提交，参见 [SECURITY.md](SECURITY.md)。
+
+提交前请确保：
 
 ```bash
 pnpm lint && pnpm build && pnpm test
